@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;600&display=swap');
 body{
     background-color: #34495E;
-    font-family: consolas; 
+    font-family: 'Inconsolata', monospace; 
 }
 .centrador{
     display: flex;
@@ -27,7 +28,7 @@ body{
 .item-flex{
     text-align: center;
     width: 200px;
-    height: 150px;
+    height: 170px;
     padding: 0px;
     margin: 20px;
     background-color: #f1c40f;
@@ -47,7 +48,6 @@ h1 {
     font-size: 1rem;
     color: #2ecc71;
     display: block;
-    font-family: consolas; 
     white-space: nowrap; 
     border-right: 4px solid;
     width: 4ch;
@@ -60,7 +60,6 @@ h2 {
     font-size: 1.5rem;
     color: #2ecc71;
     display: block;
-    font-family: consolas; 
     white-space: nowrap; 
     border-right: 4px solid;
     width: 14ch;
@@ -110,7 +109,6 @@ section{
 /*Efecto*/
 .modalmask {
     position: fixed;
-    font-family: Arial, sans-serif;
     top: 0;
     right: 0;
     bottom: 0;
@@ -129,8 +127,7 @@ section{
   }
   
   /*Formato de la ventana*/
-  .modalbox{
-    font-family: consolas; 
+  .modalbox{ 
     width: 80%;
     position: relative;
     padding: 5px 20px 13px 20px;
