@@ -235,6 +235,11 @@ section{
     width: 75%;
     margin-top: 6px;
   }
+  .col-100 {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+  }
   
   /* Clear floats after the columns */
   .row:after {
