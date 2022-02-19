@@ -1,0 +1,1 @@
+bienvenido a mi CV donde aprenderás mas de mi laboralmente.

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="centrador">
+            <h1>hola</h1>
+        </div>
+        <div class="centrador">
+            <h2>mi nombre es:</h2>
+        </div>
+
+    <div class="centrador">
+        <img  src="mifoto.jpg" alt="eric marquez" class="img-central">
+    </div>
+        <div class="centrador">
+            <h3>Eric Marquez</h3>
+        </div>
+        
+        <div class="contener-flex">
+            <div class="item-flex">
+               <h4>camino laboral</h4>
+                <section>líder de pruebas y aseguramiento de
+                    calidad de software.</section>
+                <a href="#modal1" class="btn-black">ver +</a>
+            </div>
+            <div class="item-flex">
+                <h4>aprendizaje</h4>
+                <section>
+                    Estudiando Ingeniería de software
+                    + cursos
+                </section>
+                <a href="#modal2" class="btn-black">ver +</a>
+            </div>
+            <div class="item-flex">
+                <h4>habilidades</h4>
+                <section>
+                    Desarrollo de software,
+                    Manejo de base de datos
+                </section>
+                <a href="#modal3" class="btn-black">ver +</a>
+            </div>
+        </div>
+        <div class="centrador">
+            <div class="container">
+                <h4>Sobre mí...</h4>
+                <section>
+                    hola soy Eric, Constantemente busco prepararme para desarrollarme personalmente, me gusta adaptarme y trabajar en equipo, busco crecimiento profesional y aprendizaje continuo, siempre me encuentro en busca de nuevos retos, si gusta puedes contactarme:   
+                </section>
+                <form id="my-form" action="https://formspree.io/f/mgedklbz" method="POST">
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Email:</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="email" name="email" />
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                            <label>Message:</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="message" />
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <button id="my-form-button">Submit</button>
+                      </div>
+                    <p id="my-form-status"></p>
+                  </form>
+              </div>
+        </div>
+    </main>
+
+
+    <div id="modal1" class="modalmask">
+        <div class="modalbox movedown">
+            <a href="#close__mod" title="Close" class="close__mod">X</a>
+            <h4>camino laboral</h4>
+            <section>
+                <h4 id='atento-servicios--2009---actualidad'>Atento Servicios • 2009 - Actualidad</h4>
+                <p><strong>(Actualmente)</strong> área de soporte a desarrollo,
+                como líder de pruebas y aseguramiento de
+                calidad de software.</p>
+                <p><strong>(hasta 2016)</strong>área de asignación y estrategia
+                líder estratega de datos.</p>
+                <p><strong>(hasta 2013)</strong>área medios alternos analista de
+                datos para envió de cobranza por medios
+                correo, correo electrónico, SMS y visitas.</p>
+                <p><strong>(hasta 2011)</strong>Inicié como asesor de cobranza y tiempo
+                después me uní al equipo de control de diademas.</p>
+            </section>
+        </div>
+      </div>
+      <div id="modal2" class="modalmask">
+        <div class="modalbox movedown">
+            <a href="#close__mod" title="Close" class="close__mod">X</a>
+            <h4>aprendizaje</h4>
+            <section>
+                <h4 id='universidad-unideh--estudiando'>Universidad UNIDEH • Estudiando</h4>
+                <p>Estudiando Ingeniería de software.</p>
+                <p><strong>Bachillerato CECyTEH • 2006 - 2009</strong>
+                Técnico en informática.</p>
+                <p><strong>Cursos recientes</strong>
+                Curso Básico de Python , Curso de Análisis de Negocios para Ciencia de Datos, Curso de SQL y MySQL, Fundamentos de pruebas de software, Scrum foundation
+                profesional certificate(SFPC), Lenguaje no verbal para
+                lideres, fundamentos de la gestión del tiempo, Curso
+                Scrum, GCP essentials, Programador (Orientado a objetos
+                python), Como dirigir el servicio de atención a clientes,
+                programador con Java para aplicaciones Android, control
+                de versiones,...</p>
+            </section>
+
+        </div>
+      </div>
+      <div id="modal3" class="modalmask">
+        <div class="modalbox movedown">
+            <a href="#close__mod" title="Close" class="close__mod">X</a>
+            <h4>habilidades</h4>
+            <section>
+                <p>Manejo de paquetería de ofimática.</p>
+                <p>Desarrollo de software.</p>
+                <p>Manejo de base de datos robustas.</p>
+                <p>Edición Multimedia video, imagen y audio.</p>
+                <p>Enseñanza.</p>
+            </section>
+
+        </div>
+      </div>
+
+      <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var status = document.getElementById("my-form-status");
+          var data = new FormData(event.target);
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = "gracias por escribirme, pronto te contactare";
+              form.reset()
+            } else {
+              response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                } else {
+                  status.innerHTML = "Oops! hay algun problema"
+                }
+              })
+            }
+          }).catch(error => {
+            status.innerHTML = "Oops! hay algun problema"
+          });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+</body>
+</html>
